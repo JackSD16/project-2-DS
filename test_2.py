@@ -1,16 +1,18 @@
 import unittest
 from typing import Optional, Union
+from helperfuncs import parse_row, create_linked_list, cats
 from proj2 import (
     Row,
     Node,
     read_csv_lines,
     listlen,
     filter_rows,
-    parse_row
+    parse_row, cats
 )
 
-
 class TestStructureBasics(unittest.TestCase):
+    def setUp(self):
+        self.filename = "some-ghg-emissions.csv"
 
     def test_row_instantiation(self):
         r = Row(
@@ -42,6 +44,8 @@ class TestStructureBasics(unittest.TestCase):
 
 
 class TestFunctionSignatures(unittest.TestCase):
+    def setUp(self):
+        self.filename = "some-ghg-emissions.csv"
 
     def test_parse_row_type(self):
         row = parse_row([
@@ -51,7 +55,7 @@ class TestFunctionSignatures(unittest.TestCase):
         self.assertEqual(row.country, "USA")
 
     def test_read_csv_lines_type(self):
-        result = read_csv_lines("sample.csv")  # Ensure this file exists or mock it
+        result = read_csv_lines(self.filename)
         self.assertTrue(result is None or isinstance(result, Node))
 
     def test_listlen_none(self):
