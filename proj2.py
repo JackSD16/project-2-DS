@@ -1,7 +1,7 @@
 import csv
 import math
 from dataclasses import dataclass
-from typing import Optional
+from typing import *
 import sys
 sys.setrecursionlimit(10_000)
 
