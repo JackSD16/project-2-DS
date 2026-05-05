@@ -9,7 +9,7 @@ cats = [
         "electricity_and_heat_co2_emissions_per_capita",
         "energy_co2_emissions",
         "energy_co2_emissions_per_capita",
-        "total_c o2_emissions_excluding_lucf",
+        "total_co2_emissions_excluding_lucf",
         "total_co2_emissions_excluding_lucf_per_capita",
     ]
 
