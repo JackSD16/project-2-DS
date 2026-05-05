@@ -1,3 +1,4 @@
+from __future__ import annotations
 import unittest
 from typing import *
 from proj2 import (
