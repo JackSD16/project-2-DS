@@ -1,5 +1,5 @@
 import unittest
-from typing import Optional, Union
+from typing import *
 from helperfuncs import parse_row, create_linked_list, cats
 from proj2 import (
     Row,
