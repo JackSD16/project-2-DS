@@ -6,33 +6,6 @@ import sys
 sys.setrecursionlimit(10_000)
 
 
-cats = [
-        "country",
-        "year",
-        "electricity_and_heat_co2_emissions",
-        "electricity_and_heat_co2_emissions_per_capita",
-        "energy_co2_emissions",
-        "energy_co2_emissions_per_capita",
-        "total_co2_emissions_excluding_lucf",
-        "total_co2_emissions_excluding_lucf_per_capita",
-    ]
-
-def parse_row(fields: list[str]) -> Row:
-    return Row(
-        fields[0],
-        int(fields[1]),
-        float(fields[2]) if fields[2] != "" else None,
-        float(fields[3]) if fields[3] != "" else None,
-        float(fields[4]) if fields[4] != "" else None,
-        float(fields[5]) if fields[5] != "" else None,
-        float(fields[6]) if fields[6] != "" else None,
-        float(fields[7]) if fields[7] != "" else None,
-    )
-def create_linked_list(rows: list[Row]) -> Optional[Node]:
-    if rows == []:
-        return None
-    return Node(rows[0], create_linked_list(rows[1:]))
-
 
 @dataclass(frozen=True)
 class Row:
@@ -62,6 +35,21 @@ cats = [
         "total_co2_emissions_excluding_lucf_per_capita",
     ]
 
+def parse_row(fields: list[str]) -> Row:
+    return Row(
+        fields[0],
+        int(fields[1]),
+        float(fields[2]) if fields[2] != "" else None,
+        float(fields[3]) if fields[3] != "" else None,
+        float(fields[4]) if fields[4] != "" else None,
+        float(fields[5]) if fields[5] != "" else None,
+        float(fields[6]) if fields[6] != "" else None,
+        float(fields[7]) if fields[7] != "" else None,
+    )
+def create_linked_list(rows: list[Row]) -> Optional[Node]:
+    if rows == []:
+        return None
+    return Node(rows[0], create_linked_list(rows[1:]))
 
 
 def read_csv_lines(filename: str) -> Optional[Node]:
